@@ -1,0 +1,6 @@
+com/wind/model/user/Permission.class
+com/wind/annotation/DAO.class
+com/wind/model/user/User.class
+com/wind/model/user/RolePermission.class
+com/wind/model/user/Role.class
+com/wind/model/user/UserRole.class
