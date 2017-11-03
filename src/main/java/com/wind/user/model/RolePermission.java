@@ -1,19 +1,20 @@
-package com.wind.model.user;
+package com.wind.user.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * UserRole
+ * RolePermission
  *
  * @author qianchun 17/7/24
  **/
-public class UserRole implements Serializable{
+public class RolePermission implements Serializable {
     private long id;
-    private long userId;
     private long roleId;
+    private long permissionId;
     private Date createTime;
     private Date updateTime;
+
 
     public long getId() {
         return id;
@@ -23,20 +24,20 @@ public class UserRole implements Serializable{
         this.id = id;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
     public long getRoleId() {
         return roleId;
     }
 
     public void setRoleId(long roleId) {
         this.roleId = roleId;
+    }
+
+    public long getPermissionId() {
+        return permissionId;
+    }
+
+    public void setPermissionId(long permissionId) {
+        this.permissionId = permissionId;
     }
 
     public Date getCreateTime() {

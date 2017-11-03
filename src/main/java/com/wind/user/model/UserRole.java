@@ -1,22 +1,19 @@
-package com.wind.model.user;
+package com.wind.user.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
- * Role
+ * UserRole
  *
  * @author qianchun 17/7/24
  **/
-public class Role implements Serializable{
+public class UserRole implements Serializable{
     private long id;
-    private String name;
-    private int status;
+    private long userId;
+    private long roleId;
     private Date createTime;
     private Date updateTime;
-    private List<Permission> permissions;
-
 
     public long getId() {
         return id;
@@ -26,20 +23,20 @@ public class Role implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public int getStatus() {
-        return status;
+    public long getRoleId() {
+        return roleId;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setRoleId(long roleId) {
+        this.roleId = roleId;
     }
 
     public Date getCreateTime() {
@@ -56,13 +53,5 @@ public class Role implements Serializable{
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public List<Permission> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
     }
 }
