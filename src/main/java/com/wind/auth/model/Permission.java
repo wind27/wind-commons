@@ -1,20 +1,49 @@
-package com.wind.user.model;
+package com.wind.auth.model;
+
+import com.wind.model.BaseObject;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Permission
+ * Permission 权限表
  *
  * @author qianchun 17/7/24
  **/
-public class Permission implements Serializable {
+public class Permission extends BaseObject {
+    /**
+     * 主键ID
+     */
     private long id;
+
+    /**
+     * 权限名称
+     */
     private String name;
+
+    /**
+     * 权限值
+     */
     private String value;
+
+    /**
+     * 状态 1:启用 0:停用
+     */
     private int status;
+
+    /**
+     * 创建时间
+     */
     private Date createTime;
+
+    /**
+     * 更新时间
+     */
     private Date updateTime;
+
+    /**
+     * 排序
+     */
     private int seq;
 
     public long getId() {

@@ -1,18 +1,38 @@
-package com.wind.user.model;
+package com.wind.auth.model;
 
-import java.io.Serializable;
+import com.wind.model.BaseObject;
+
 import java.util.Date;
 
 /**
- * UserRole
+ * LinkRolePermission 角色权限关联关系
  *
  * @author qianchun 17/7/24
  **/
-public class UserRole implements Serializable{
+public class LinkRolePermission extends BaseObject {
+    /**
+     * 主键ID
+     */
     private long id;
-    private long userId;
+
+    /**
+     * 角色ID
+     */
     private long roleId;
+
+    /**
+     * 权限ID
+     */
+    private long permissionId;
+
+    /**
+     * 创建时间
+     */
     private Date createTime;
+
+    /**
+     * 更新时间
+     */
     private Date updateTime;
 
     public long getId() {
@@ -23,20 +43,20 @@ public class UserRole implements Serializable{
         this.id = id;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
     public long getRoleId() {
         return roleId;
     }
 
     public void setRoleId(long roleId) {
         this.roleId = roleId;
+    }
+
+    public long getPermissionId() {
+        return permissionId;
+    }
+
+    public void setPermissionId(long permissionId) {
+        this.permissionId = permissionId;
     }
 
     public Date getCreateTime() {

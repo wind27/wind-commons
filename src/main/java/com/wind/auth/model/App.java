@@ -1,22 +1,45 @@
-package com.wind.user.model;
+package com.wind.auth.model;
 
-import java.io.Serializable;
+import com.wind.model.BaseObject;
+
 import java.util.Date;
-import java.util.List;
 
 /**
- * Role
+ * App 应用app
  *
- * @author qianchun 17/7/24
+ * @author qianchun 17/11/6
  **/
-public class Role implements Serializable{
-    private long id;
-    private String name;
-    private int status;
-    private Date createTime;
-    private Date updateTime;
-    private List<Permission> permissions;
+public class App extends BaseObject {
 
+    /**
+     * 主键ID
+     */
+    private long id;
+
+    /**
+     * 应用名称
+     */
+    private String name;
+
+    /**
+     * 应用状态 1:启用 0:停用
+     */
+    private int status;
+
+    /**
+     * 首页地址
+     */
+    private String homePageUrl;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
 
     public long getId() {
         return id;
@@ -42,6 +65,14 @@ public class Role implements Serializable{
         this.status = status;
     }
 
+    public String getHomePageUrl() {
+        return homePageUrl;
+    }
+
+    public void setHomePageUrl(String homePageUrl) {
+        this.homePageUrl = homePageUrl;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -56,13 +87,5 @@ public class Role implements Serializable{
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public List<Permission> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
     }
 }
