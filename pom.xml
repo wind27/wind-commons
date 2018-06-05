@@ -22,15 +22,16 @@
         </developer>
     </developers>
     <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>http://wind.com:8081/repository/maven-central/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>http://wind.com:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+         <repository>
+             <id>maven-releases</id>
+             <url>http://nexus-3.2.0:8081/repository/maven-central/</url>
+         </repository>
+         <snapshotRepository>
+             <id>maven-snapshots</id>
+             <url>http://nexus-3.2.0:8081/repository/maven-snapshots/</url>
+         </snapshotRepository>
+     </distributionManagement>
+         
     <build>
         <defaultGoal>compile</defaultGoal>
     </build>
