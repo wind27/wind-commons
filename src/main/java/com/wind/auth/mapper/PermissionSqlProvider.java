@@ -1,24 +1,28 @@
-package com.wind.auth.dao;
+package com.wind.auth.mapper;
 
-import com.wind.auth.model.LinkUserRole;
+import com.wind.auth.model.Permission;
 import org.apache.ibatis.jdbc.SQL;
 
-public class LinkUserRoleSqlProvider {
+public class PermissionSqlProvider {
 
-    public String insertSelective(LinkUserRole record) {
+    public String insertSelective(Permission record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("link_user_role");
+        sql.INSERT_INTO("permission");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=BIGINT}");
         }
         
-        if (record.getUserId() != null) {
-            sql.VALUES("user_id", "#{userId,jdbcType=BIGINT}");
+        if (record.getName() != null) {
+            sql.VALUES("name", "#{name,jdbcType=VARCHAR}");
         }
         
-        if (record.getRoleId() != null) {
-            sql.VALUES("role_id", "#{roleId,jdbcType=BIGINT}");
+        if (record.getValue() != null) {
+            sql.VALUES("value", "#{value,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.VALUES("status", "#{status,jdbcType=TINYINT}");
         }
         
         if (record.getCreateTime() != null) {
@@ -32,16 +36,20 @@ public class LinkUserRoleSqlProvider {
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(LinkUserRole record) {
+    public String updateByPrimaryKeySelective(Permission record) {
         SQL sql = new SQL();
-        sql.UPDATE("link_user_role");
+        sql.UPDATE("permission");
         
-        if (record.getUserId() != null) {
-            sql.SET("user_id = #{userId,jdbcType=BIGINT}");
+        if (record.getName() != null) {
+            sql.SET("name = #{name,jdbcType=VARCHAR}");
         }
         
-        if (record.getRoleId() != null) {
-            sql.SET("role_id = #{roleId,jdbcType=BIGINT}");
+        if (record.getValue() != null) {
+            sql.SET("value = #{value,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=TINYINT}");
         }
         
         if (record.getCreateTime() != null) {

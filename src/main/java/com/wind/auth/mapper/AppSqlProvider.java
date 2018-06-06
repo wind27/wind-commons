@@ -1,24 +1,28 @@
-package com.wind.auth.dao;
+package com.wind.auth.mapper;
 
-import com.wind.auth.model.LinkRolePermission;
+import com.wind.auth.model.App;
 import org.apache.ibatis.jdbc.SQL;
 
-public class LinkRolePermissionSqlProvider {
+public class AppSqlProvider {
 
-    public String insertSelective(LinkRolePermission record) {
+    public String insertSelective(App record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("link_role_permission");
+        sql.INSERT_INTO("app");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=BIGINT}");
         }
         
-        if (record.getRoleId() != null) {
-            sql.VALUES("role_id", "#{roleId,jdbcType=BIGINT}");
+        if (record.getName() != null) {
+            sql.VALUES("name", "#{name,jdbcType=VARCHAR}");
         }
         
-        if (record.getPermissionId() != null) {
-            sql.VALUES("permission_id", "#{permissionId,jdbcType=BIGINT}");
+        if (record.getHomePageUrl() != null) {
+            sql.VALUES("home_page_url", "#{homePageUrl,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.VALUES("status", "#{status,jdbcType=TINYINT}");
         }
         
         if (record.getCreateTime() != null) {
@@ -32,16 +36,20 @@ public class LinkRolePermissionSqlProvider {
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(LinkRolePermission record) {
+    public String updateByPrimaryKeySelective(App record) {
         SQL sql = new SQL();
-        sql.UPDATE("link_role_permission");
+        sql.UPDATE("app");
         
-        if (record.getRoleId() != null) {
-            sql.SET("role_id = #{roleId,jdbcType=BIGINT}");
+        if (record.getName() != null) {
+            sql.SET("name = #{name,jdbcType=VARCHAR}");
         }
         
-        if (record.getPermissionId() != null) {
-            sql.SET("permission_id = #{permissionId,jdbcType=BIGINT}");
+        if (record.getHomePageUrl() != null) {
+            sql.SET("home_page_url = #{homePageUrl,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=TINYINT}");
         }
         
         if (record.getCreateTime() != null) {

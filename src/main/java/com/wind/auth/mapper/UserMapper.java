@@ -1,4 +1,4 @@
-package com.wind.auth.dao;
+package com.wind.auth.mapper;
 
 import com.wind.auth.model.User;
 import org.apache.ibatis.annotations.Delete;

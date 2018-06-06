@@ -1,28 +1,24 @@
-package com.wind.auth.dao;
+package com.wind.auth.mapper;
 
-import com.wind.auth.model.Permission;
+import com.wind.auth.model.LinkRolePermission;
 import org.apache.ibatis.jdbc.SQL;
 
-public class PermissionSqlProvider {
+public class LinkRolePermissionSqlProvider {
 
-    public String insertSelective(Permission record) {
+    public String insertSelective(LinkRolePermission record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("permission");
+        sql.INSERT_INTO("link_role_permission");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=BIGINT}");
         }
         
-        if (record.getName() != null) {
-            sql.VALUES("name", "#{name,jdbcType=VARCHAR}");
+        if (record.getRoleId() != null) {
+            sql.VALUES("role_id", "#{roleId,jdbcType=BIGINT}");
         }
         
-        if (record.getValue() != null) {
-            sql.VALUES("value", "#{value,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getStatus() != null) {
-            sql.VALUES("status", "#{status,jdbcType=TINYINT}");
+        if (record.getPermissionId() != null) {
+            sql.VALUES("permission_id", "#{permissionId,jdbcType=BIGINT}");
         }
         
         if (record.getCreateTime() != null) {
@@ -36,20 +32,16 @@ public class PermissionSqlProvider {
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(Permission record) {
+    public String updateByPrimaryKeySelective(LinkRolePermission record) {
         SQL sql = new SQL();
-        sql.UPDATE("permission");
+        sql.UPDATE("link_role_permission");
         
-        if (record.getName() != null) {
-            sql.SET("name = #{name,jdbcType=VARCHAR}");
+        if (record.getRoleId() != null) {
+            sql.SET("role_id = #{roleId,jdbcType=BIGINT}");
         }
         
-        if (record.getValue() != null) {
-            sql.SET("value = #{value,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getStatus() != null) {
-            sql.SET("status = #{status,jdbcType=TINYINT}");
+        if (record.getPermissionId() != null) {
+            sql.SET("permission_id = #{permissionId,jdbcType=BIGINT}");
         }
         
         if (record.getCreateTime() != null) {
