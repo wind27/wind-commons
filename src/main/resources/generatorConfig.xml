@@ -14,7 +14,7 @@
         <!--数据库链接地址账号密码-->
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://wind.com:3306/wind_auth"
                         userId="root" password="123456">-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://mysql-5.7.22:3306/wind_auth"
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://mysql:3306/wind_auth"
                         userId="root" password="123456">
         </jdbcConnection>
         <javaTypeResolver>
