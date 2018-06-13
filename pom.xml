@@ -49,7 +49,7 @@
          
     <build>
         <defaultGoal>compile</defaultGoal>
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -67,6 +67,6 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 </project>
