@@ -45,8 +45,4 @@ public class JsonResponseUtil {
         result.put("msg", msg);
         return result.toString();
     }
-
-    public static void main(String[] args) {
-        System.out.println(fail(ErrorCode.ERROR.SYS_ERROR));
-    }
 }
