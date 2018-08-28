@@ -19,9 +19,9 @@ public interface LinkMapper {
     int deleteByPrimaryKey(Long id);
 
     @Insert({
-        "insert into link (id, from, ",
+        "insert into link (id, source, ",
         "url, is_parse, blog_id)",
-        "values (#{id,jdbcType=BIGINT}, #{from,jdbcType=INTEGER}, ",
+        "values (#{id,jdbcType=BIGINT}, #{source,jdbcType=INTEGER}, ",
         "#{url,jdbcType=VARCHAR}, #{isParse,jdbcType=INTEGER}, #{blogId,jdbcType=BIGINT})"
     })
     int insert(Link record);
@@ -31,13 +31,13 @@ public interface LinkMapper {
 
     @Select({
         "select",
-        "id, from, url, is_parse, blog_id",
+        "id, source, url, is_parse, blog_id",
         "from link",
         "where id = #{id,jdbcType=BIGINT}"
     })
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
-        @Result(column="from", property="from", jdbcType=JdbcType.INTEGER),
+        @Result(column="source", property="source", jdbcType=JdbcType.INTEGER),
         @Result(column="url", property="url", jdbcType=JdbcType.VARCHAR),
         @Result(column="is_parse", property="isParse", jdbcType=JdbcType.INTEGER),
         @Result(column="blog_id", property="blogId", jdbcType=JdbcType.BIGINT)
@@ -49,7 +49,7 @@ public interface LinkMapper {
 
     @Update({
         "update link",
-        "set from = #{from,jdbcType=INTEGER},",
+        "set source = #{source,jdbcType=INTEGER},",
           "url = #{url,jdbcType=VARCHAR},",
           "is_parse = #{isParse,jdbcType=INTEGER},",
           "blog_id = #{blogId,jdbcType=BIGINT}",

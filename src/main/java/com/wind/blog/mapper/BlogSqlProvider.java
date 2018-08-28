@@ -17,8 +17,8 @@ public class BlogSqlProvider {
             sql.VALUES("tags", "#{tags,jdbcType=VARCHAR}");
         }
         
-        if (record.getFrom() != null) {
-            sql.VALUES("from", "#{from,jdbcType=INTEGER}");
+        if (record.getSource() != null) {
+            sql.VALUES("source", "#{source,jdbcType=INTEGER}");
         }
         
         if (record.getTitle() != null) {
@@ -60,8 +60,8 @@ public class BlogSqlProvider {
             sql.SET("tags = #{tags,jdbcType=VARCHAR}");
         }
         
-        if (record.getFrom() != null) {
-            sql.SET("from = #{from,jdbcType=INTEGER}");
+        if (record.getSource() != null) {
+            sql.SET("source = #{source,jdbcType=INTEGER}");
         }
         
         if (record.getTitle() != null) {

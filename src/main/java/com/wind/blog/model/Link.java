@@ -3,7 +3,7 @@ package com.wind.blog.model;
 public class Link {
     private Long id;
 
-    private Integer from;
+    private Integer source;
 
     private String url;
 
@@ -19,12 +19,12 @@ public class Link {
         this.id = id;
     }
 
-    public Integer getFrom() {
-        return from;
+    public Integer getSource() {
+        return source;
     }
 
-    public void setFrom(Integer from) {
-        this.from = from;
+    public void setSource(Integer source) {
+        this.source = source;
     }
 
     public String getUrl() {

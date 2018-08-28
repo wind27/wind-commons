@@ -7,7 +7,7 @@ public class Blog {
 
     private String tags;
 
-    private Integer from;
+    private Integer source;
 
     private String title;
 
@@ -39,12 +39,12 @@ public class Blog {
         this.tags = tags == null ? null : tags.trim();
     }
 
-    public Integer getFrom() {
-        return from;
+    public Integer getSource() {
+        return source;
     }
 
-    public void setFrom(Integer from) {
-        this.from = from;
+    public void setSource(Integer source) {
+        this.source = source;
     }
 
     public String getTitle() {

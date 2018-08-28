@@ -20,12 +20,12 @@ public interface BlogMapper {
 
     @Insert({
         "insert into blog (id, tags, ",
-        "from, title, summary, ",
+        "source, title, summary, ",
         "uid, create_time, ",
         "update_time, publish_time, ",
         "content)",
         "values (#{id,jdbcType=BIGINT}, #{tags,jdbcType=VARCHAR}, ",
-        "#{from,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, ",
+        "#{source,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, ",
         "#{uid,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updateTime,jdbcType=TIMESTAMP}, #{publishTime,jdbcType=TIMESTAMP}, ",
         "#{content,jdbcType=LONGVARCHAR})"
@@ -37,7 +37,7 @@ public interface BlogMapper {
 
     @Select({
         "select",
-        "id, tags, from, title, summary, uid, create_time, update_time, publish_time, ",
+        "id, tags, source, title, summary, uid, create_time, update_time, publish_time, ",
         "content",
         "from blog",
         "where id = #{id,jdbcType=BIGINT}"
@@ -45,7 +45,7 @@ public interface BlogMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
         @Result(column="tags", property="tags", jdbcType=JdbcType.VARCHAR),
-        @Result(column="from", property="from", jdbcType=JdbcType.INTEGER),
+        @Result(column="source", property="source", jdbcType=JdbcType.INTEGER),
         @Result(column="title", property="title", jdbcType=JdbcType.VARCHAR),
         @Result(column="summary", property="summary", jdbcType=JdbcType.VARCHAR),
         @Result(column="uid", property="uid", jdbcType=JdbcType.BIGINT),
@@ -62,7 +62,7 @@ public interface BlogMapper {
     @Update({
         "update blog",
         "set tags = #{tags,jdbcType=VARCHAR},",
-          "from = #{from,jdbcType=INTEGER},",
+          "source = #{source,jdbcType=INTEGER},",
           "title = #{title,jdbcType=VARCHAR},",
           "summary = #{summary,jdbcType=VARCHAR},",
           "uid = #{uid,jdbcType=BIGINT},",
@@ -77,7 +77,7 @@ public interface BlogMapper {
     @Update({
         "update blog",
         "set tags = #{tags,jdbcType=VARCHAR},",
-          "from = #{from,jdbcType=INTEGER},",
+          "source = #{source,jdbcType=INTEGER},",
           "title = #{title,jdbcType=VARCHAR},",
           "summary = #{summary,jdbcType=VARCHAR},",
           "uid = #{uid,jdbcType=BIGINT},",
