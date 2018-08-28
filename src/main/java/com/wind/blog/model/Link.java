@@ -3,11 +3,11 @@ package com.wind.blog.model;
 public class Link {
     private Long id;
 
-    private Byte from;
+    private Integer from;
 
     private String url;
 
-    private Byte isParse;
+    private Integer isParse;
 
     private Long blogId;
 
@@ -19,11 +19,11 @@ public class Link {
         this.id = id;
     }
 
-    public Byte getFrom() {
+    public Integer getFrom() {
         return from;
     }
 
-    public void setFrom(Byte from) {
+    public void setFrom(Integer from) {
         this.from = from;
     }
 
@@ -35,11 +35,11 @@ public class Link {
         this.url = url == null ? null : url.trim();
     }
 
-    public Byte getIsParse() {
+    public Integer getIsParse() {
         return isParse;
     }
 
-    public void setIsParse(Byte isParse) {
+    public void setIsParse(Integer isParse) {
         this.isParse = isParse;
     }
 

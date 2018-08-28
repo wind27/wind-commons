@@ -14,7 +14,7 @@ public class LinkSqlProvider {
         }
         
         if (record.getFrom() != null) {
-            sql.VALUES("from", "#{from,jdbcType=TINYINT}");
+            sql.VALUES("from", "#{from,jdbcType=INTEGER}");
         }
         
         if (record.getUrl() != null) {
@@ -22,7 +22,7 @@ public class LinkSqlProvider {
         }
         
         if (record.getIsParse() != null) {
-            sql.VALUES("is_parse", "#{isParse,jdbcType=TINYINT}");
+            sql.VALUES("is_parse", "#{isParse,jdbcType=INTEGER}");
         }
         
         if (record.getBlogId() != null) {
@@ -37,7 +37,7 @@ public class LinkSqlProvider {
         sql.UPDATE("link");
         
         if (record.getFrom() != null) {
-            sql.SET("from = #{from,jdbcType=TINYINT}");
+            sql.SET("from = #{from,jdbcType=INTEGER}");
         }
         
         if (record.getUrl() != null) {
@@ -45,7 +45,7 @@ public class LinkSqlProvider {
         }
         
         if (record.getIsParse() != null) {
-            sql.SET("is_parse = #{isParse,jdbcType=TINYINT}");
+            sql.SET("is_parse = #{isParse,jdbcType=INTEGER}");
         }
         
         if (record.getBlogId() != null) {
