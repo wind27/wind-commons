@@ -45,6 +45,10 @@ public class BlogSqlProvider {
             sql.VALUES("publish_time", "#{publishTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getStatus() != null) {
+            sql.VALUES("status", "#{status,jdbcType=INTEGER}");
+        }
+        
         if (record.getContent() != null) {
             sql.VALUES("content", "#{content,jdbcType=LONGVARCHAR}");
         }
@@ -86,6 +90,10 @@ public class BlogSqlProvider {
         
         if (record.getPublishTime() != null) {
             sql.SET("publish_time = #{publishTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=INTEGER}");
         }
         
         if (record.getContent() != null) {

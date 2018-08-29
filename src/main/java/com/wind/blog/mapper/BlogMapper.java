@@ -23,12 +23,12 @@ public interface BlogMapper {
         "source, title, summary, ",
         "uid, create_time, ",
         "update_time, publish_time, ",
-        "content)",
+        "status, content)",
         "values (#{id,jdbcType=BIGINT}, #{tags,jdbcType=VARCHAR}, ",
         "#{source,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, ",
         "#{uid,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updateTime,jdbcType=TIMESTAMP}, #{publishTime,jdbcType=TIMESTAMP}, ",
-        "#{content,jdbcType=LONGVARCHAR})"
+        "#{status,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})"
     })
     int insert(Blog record);
 
@@ -38,7 +38,7 @@ public interface BlogMapper {
     @Select({
         "select",
         "id, tags, source, title, summary, uid, create_time, update_time, publish_time, ",
-        "content",
+        "status, content",
         "from blog",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -52,6 +52,7 @@ public interface BlogMapper {
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="update_time", property="updateTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="publish_time", property="publishTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
         @Result(column="content", property="content", jdbcType=JdbcType.LONGVARCHAR)
     })
     Blog selectByPrimaryKey(Long id);
@@ -69,6 +70,7 @@ public interface BlogMapper {
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "update_time = #{updateTime,jdbcType=TIMESTAMP},",
           "publish_time = #{publishTime,jdbcType=TIMESTAMP},",
+          "status = #{status,jdbcType=INTEGER},",
           "content = #{content,jdbcType=LONGVARCHAR}",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -83,7 +85,8 @@ public interface BlogMapper {
           "uid = #{uid,jdbcType=BIGINT},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "update_time = #{updateTime,jdbcType=TIMESTAMP},",
-          "publish_time = #{publishTime,jdbcType=TIMESTAMP}",
+          "publish_time = #{publishTime,jdbcType=TIMESTAMP},",
+          "status = #{status,jdbcType=INTEGER}",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(Blog record);

@@ -21,6 +21,8 @@ public class Blog {
 
     private Date publishTime;
 
+    private Integer status;
+
     private String content;
 
     public Long getId() {
@@ -93,6 +95,14 @@ public class Blog {
 
     public void setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getContent() {
