@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
@@ -19,14 +20,16 @@ public interface LinkMapper {
     int deleteByPrimaryKey(Long id);
 
     @Insert({
-        "insert into link (id, source, ",
-        "url, is_parse, blog_id)",
-        "values (#{id,jdbcType=BIGINT}, #{source,jdbcType=INTEGER}, ",
-        "#{url,jdbcType=VARCHAR}, #{isParse,jdbcType=INTEGER}, #{blogId,jdbcType=BIGINT})"
+        "insert into link (source, url, ",
+        "is_parse, blog_id)",
+        "values (#{source,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, ",
+        "#{isParse,jdbcType=INTEGER}, #{blogId,jdbcType=BIGINT})"
     })
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Link record);
 
     @InsertProvider(type=LinkSqlProvider.class, method="insertSelective")
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insertSelective(Link record);
 
     @Select({

@@ -9,10 +9,6 @@ public class BlogSqlProvider {
         SQL sql = new SQL();
         sql.INSERT_INTO("blog");
         
-        if (record.getId() != null) {
-            sql.VALUES("id", "#{id,jdbcType=BIGINT}");
-        }
-        
         if (record.getTags() != null) {
             sql.VALUES("tags", "#{tags,jdbcType=VARCHAR}");
         }

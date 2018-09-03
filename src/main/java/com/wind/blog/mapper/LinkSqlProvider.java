@@ -9,10 +9,6 @@ public class LinkSqlProvider {
         SQL sql = new SQL();
         sql.INSERT_INTO("link");
         
-        if (record.getId() != null) {
-            sql.VALUES("id", "#{id,jdbcType=BIGINT}");
-        }
-        
         if (record.getSource() != null) {
             sql.VALUES("source", "#{source,jdbcType=INTEGER}");
         }

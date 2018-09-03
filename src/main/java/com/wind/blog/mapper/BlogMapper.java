@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
@@ -19,20 +20,22 @@ public interface BlogMapper {
     int deleteByPrimaryKey(Long id);
 
     @Insert({
-        "insert into blog (id, tags, ",
-        "source, title, summary, ",
+        "insert into blog (tags, source, ",
+        "title, summary, ",
         "uid, create_time, ",
         "update_time, publish_time, ",
         "status, content)",
-        "values (#{id,jdbcType=BIGINT}, #{tags,jdbcType=VARCHAR}, ",
-        "#{source,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, ",
+        "values (#{tags,jdbcType=VARCHAR}, #{source,jdbcType=INTEGER}, ",
+        "#{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, ",
         "#{uid,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updateTime,jdbcType=TIMESTAMP}, #{publishTime,jdbcType=TIMESTAMP}, ",
         "#{status,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})"
     })
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Blog record);
 
     @InsertProvider(type=BlogSqlProvider.class, method="insertSelective")
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insertSelective(Blog record);
 
     @Select({
