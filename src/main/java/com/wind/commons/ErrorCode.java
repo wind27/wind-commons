@@ -7,18 +7,12 @@ package com.wind.commons;
  **/
 public enum ErrorCode {
 
-    SUCCESS(            0,  "success"),
-    FAIL(               1,  "fail"),
-    SYS_ERROR(          2,  "sys_error"),
-    PARAM_ERROR(        3,  "param_error"),
-    NO_PREMISSION(      4,  "no_premission"),
-    NOT_EXIST(          5,  "not_exist"),
-    DISABLED(           6,  "disabled"),
-    ERROR(              -1,  "error");
-
-
+    SUCCESS(0, "success"), FAIL(1, "fail"), SYS_ERROR(2, "sys_error"), PARAM_ERROR(3, "param_error"), NO_PREMISSION(4,
+            "no_premission"), NOT_EXISTS(5,
+                    "not_exists"), EXISTS(6, "exists"), DISABLED(7, "disabled"), ERROR(-1, "error");
 
     private Integer value;
+
     private String name;
 
     ErrorCode(int value, String name) {
