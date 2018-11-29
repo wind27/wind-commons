@@ -45,10 +45,48 @@ public class TencentAiOCRUtilTest {
      */
     @Test
     public void testOcrCommon() throws Exception {
-        File file = new File("/Users/qianchun/easyAuditReport.jpg");
-        PowerMockito.mockStatic(TencentAiOCRUtil.class);
-        PowerMockito.when(TencentAiOCRUtil.ocrCommon(appId, appKey, file)).thenReturn("通用图片测试");
-        String result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        File file = null;
+        String result = null;
+//        File file = new File("/Users/qianchun/easyAuditReport.jpg");
+//        PowerMockito.mockStatic(TencentAiOCRUtil.class);
+//        PowerMockito.when(TencentAiOCRUtil.ocrCommon(appId, appKey, file)).thenReturn("通用图片测试");
+//        String result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+//        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport1.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport2.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport3.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport4.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport5.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport7.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport8.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport9.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
+        System.out.println(result);
+
+        file = new File("/Users/qianchun/Downloads/easyAuditReport10.jpeg");
+        result = TencentAiOCRUtil.ocrCommon(appId, appKey, file);
         System.out.println(result);
 
     }
