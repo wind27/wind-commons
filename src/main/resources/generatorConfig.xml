@@ -15,7 +15,7 @@
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://wind.com:3306/wind_auth"
                         userId="root" password="123456">-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://mysql:3306/wind_blog"
-                        userId="root" password="123456">
+                        userId="root" password="Dev123@wind.COM">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>

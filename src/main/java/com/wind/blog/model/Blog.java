@@ -15,13 +15,13 @@ public class Blog {
 
     private Long uid;
 
+    private Integer status;
+
     private Date createTime;
 
     private Date updateTime;
 
     private Date publishTime;
-
-    private Integer status;
 
     private String content;
 
@@ -73,6 +73,14 @@ public class Blog {
         this.uid = uid;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -95,14 +103,6 @@ public class Blog {
 
     public void setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
 
     public String getContent() {

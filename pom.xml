@@ -116,7 +116,7 @@
     <build>
         <defaultGoal>compile</defaultGoal>
         <plugins>
-        <!--<plugin>
+        <plugin>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-maven-plugin</artifactId>
             <configuration>
@@ -131,7 +131,7 @@
                     </goals>
                 </execution>
             </executions>
-        </plugin>-->
+        </plugin>
 
             <!-- mvn test生成xml txt测试报告（命令行不带surefire-report:report时） -->
             <plugin>

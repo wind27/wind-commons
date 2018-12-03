@@ -22,14 +22,14 @@ public interface BlogMapper {
     @Insert({
         "insert into blog (tags, source, ",
         "title, summary, ",
-        "uid, create_time, ",
+        "uid, status, create_time, ",
         "update_time, publish_time, ",
-        "status, content)",
+        "content)",
         "values (#{tags,jdbcType=VARCHAR}, #{source,jdbcType=INTEGER}, ",
         "#{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, ",
-        "#{uid,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, ",
+        "#{uid,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updateTime,jdbcType=TIMESTAMP}, #{publishTime,jdbcType=TIMESTAMP}, ",
-        "#{status,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})"
+        "#{content,jdbcType=LONGVARCHAR})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Blog record);
@@ -40,8 +40,8 @@ public interface BlogMapper {
 
     @Select({
         "select",
-        "id, tags, source, title, summary, uid, create_time, update_time, publish_time, ",
-        "status, content",
+        "id, tags, source, title, summary, uid, status, create_time, update_time, publish_time, ",
+        "content",
         "from blog",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -52,10 +52,10 @@ public interface BlogMapper {
         @Result(column="title", property="title", jdbcType=JdbcType.VARCHAR),
         @Result(column="summary", property="summary", jdbcType=JdbcType.VARCHAR),
         @Result(column="uid", property="uid", jdbcType=JdbcType.BIGINT),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="update_time", property="updateTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="publish_time", property="publishTime", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
         @Result(column="content", property="content", jdbcType=JdbcType.LONGVARCHAR)
     })
     Blog selectByPrimaryKey(Long id);
@@ -70,10 +70,10 @@ public interface BlogMapper {
           "title = #{title,jdbcType=VARCHAR},",
           "summary = #{summary,jdbcType=VARCHAR},",
           "uid = #{uid,jdbcType=BIGINT},",
+          "status = #{status,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "update_time = #{updateTime,jdbcType=TIMESTAMP},",
           "publish_time = #{publishTime,jdbcType=TIMESTAMP},",
-          "status = #{status,jdbcType=INTEGER},",
           "content = #{content,jdbcType=LONGVARCHAR}",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -86,10 +86,10 @@ public interface BlogMapper {
           "title = #{title,jdbcType=VARCHAR},",
           "summary = #{summary,jdbcType=VARCHAR},",
           "uid = #{uid,jdbcType=BIGINT},",
+          "status = #{status,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "update_time = #{updateTime,jdbcType=TIMESTAMP},",
-          "publish_time = #{publishTime,jdbcType=TIMESTAMP},",
-          "status = #{status,jdbcType=INTEGER}",
+          "publish_time = #{publishTime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(Blog record);

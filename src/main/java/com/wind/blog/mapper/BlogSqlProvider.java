@@ -29,6 +29,10 @@ public class BlogSqlProvider {
             sql.VALUES("uid", "#{uid,jdbcType=BIGINT}");
         }
         
+        if (record.getStatus() != null) {
+            sql.VALUES("status", "#{status,jdbcType=INTEGER}");
+        }
+        
         if (record.getCreateTime() != null) {
             sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
@@ -39,10 +43,6 @@ public class BlogSqlProvider {
         
         if (record.getPublishTime() != null) {
             sql.VALUES("publish_time", "#{publishTime,jdbcType=TIMESTAMP}");
-        }
-        
-        if (record.getStatus() != null) {
-            sql.VALUES("status", "#{status,jdbcType=INTEGER}");
         }
         
         if (record.getContent() != null) {
@@ -76,6 +76,10 @@ public class BlogSqlProvider {
             sql.SET("uid = #{uid,jdbcType=BIGINT}");
         }
         
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=INTEGER}");
+        }
+        
         if (record.getCreateTime() != null) {
             sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
         }
@@ -86,10 +90,6 @@ public class BlogSqlProvider {
         
         if (record.getPublishTime() != null) {
             sql.SET("publish_time = #{publishTime,jdbcType=TIMESTAMP}");
-        }
-        
-        if (record.getStatus() != null) {
-            sql.SET("status = #{status,jdbcType=INTEGER}");
         }
         
         if (record.getContent() != null) {
