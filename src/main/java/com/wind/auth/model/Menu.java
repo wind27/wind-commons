@@ -1,85 +1,115 @@
 package com.wind.auth.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Menu {
+/**
+* 
+*/
+public class Menu implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+    * 主键
+    */
     private Long id;
-
+    /**
+    * 名称
+    */
     private String name;
-
-    private Byte status;
-
+    /**
+    * 状态：1、启用；0、停用
+    */
+    private Integer status;
+    /**
+    * 应用id
+    */
     private Long appId;
-
+    /**
+    * 菜单访问url
+    */
     private String url;
-
+    /**
+    * 创建时间
+    */
     private Date createTime;
-
+    /**
+    * 更新时间
+    */
     private Date updateTime;
-
+    /**
+    * 上一级目录（根目录为0）
+    */
     private Long parentId;
 
-    public Long getId() {
-        return id;
+
+    public Long getId () {
+        return this.id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
-
-    public String getName() {
-        return name;
+    public String getName () {
+        return this.name;
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
+    }
+    public Integer getStatus () {
+        return this.status;
     }
 
-    public Byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
-
-    public Long getAppId() {
-        return appId;
+    public Long getAppId () {
+        return this.appId;
     }
 
     public void setAppId(Long appId) {
         this.appId = appId;
     }
-
-    public String getUrl() {
-        return url;
+    public String getUrl () {
+        return this.url;
     }
 
     public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+        this.url = url;
     }
-
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreateTime () {
+        return this.createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdateTime () {
+        return this.updateTime;
     }
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-
-    public Long getParentId() {
-        return parentId;
+    public Long getParentId () {
+        return this.parentId;
     }
 
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
+
+    public void copy(Menu menu) {
+        this.id = menu.id;
+        this.name = menu.name;
+        this.status = menu.status;
+        this.appId = menu.appId;
+        this.url = menu.url;
+        this.createTime = menu.createTime;
+        this.updateTime = menu.updateTime;
+        this.parentId = menu.parentId;
+    }
+
 }

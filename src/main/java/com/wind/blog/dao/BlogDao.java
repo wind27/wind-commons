@@ -2,10 +2,6 @@ package com.wind.blog.dao;
 
 import com.wind.blog.model.Blog;
 
-import java.text.MessageFormat;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.*;
 
 /**
@@ -19,8 +15,14 @@ interface BlogDao {
      */
     String TABLE_NAME = "blog";
 
+    /**
+     * 列名
+     */
     String COLLOMN = "id, tags, source, title, content, summary, uid, status, create_time, update_time, publish_time";
 
+    /**
+     * 查询语句
+     */
     String SELECT_SQL = "SELECT id, tags, source, title, content, summary, uid, status, create_time, update_time, publish_time FROM blog";
 
     /**
@@ -55,18 +57,6 @@ interface BlogDao {
             + ") </script> ";
 
     /**
-     * 批量新增 sql
-     */
-    String INSERT_SQL_BAT =
-            "<script> " +
-                    "INSERT INTO blog (" + COLLOMN + ") VALUES "
-                    + "<foreach collection=\"list\" item=\"item\" index=\"index\" open=\"(\" close=\")\" separator=\",\">"
-                    + "#{item.id},#{item.tags}, #{item.source}, #{item.title}, #{item.content}, #{item.summary}, "
-                    + "#{item.uid}, #{item.status}, #{item.create_time}, #{item.update_time}, #{item.publish_time}"
-                    + "</foreach>"
-                    + "</script> ";
-
-    /**
      * 更新 sql
      */
     String UPDATE_COLS = "#if(:1.tags!=null){,tags=:1.tags}" + "#if(:1.source!=null){,source=:1.source}"
@@ -84,12 +74,6 @@ interface BlogDao {
     int insert(Blog blog);
 
     /**
-     * 批量新增
-     */
-    @InsertProvider(type = Provider.class, method = "batchInsert")
-    void batchInsert(@Param("list") List<Blog> list);
-
-    /**
      * 更新
      */
     @Update("UPDATE blog SET id=:1.id " + UPDATE_COLS + " WHERE id=:1.id ")
@@ -102,82 +86,14 @@ interface BlogDao {
     void delete(Long primary);
 
     /**
-     * 批量删除
-     */
-    @Delete("DELETE FROM blog WHERE id in (#{primary})")
-    void deleteByPrimaryList(List<Long> primaryList);
-
-    /**
      * 根据主键查询
      */
     @Select(SELECT_SQL + " WHERE id = #{primary}")
     Blog getByPrimary(Long primary);
 
     /**
-     * 根据主键ids查询 list
-     */
-    @Select(SELECT_SQL + " WHERE id IN (#{primary})")
-    List<Blog> getListByPrimaryList(List<Long> primaryList);
-
-    /**
-     * 根据主键ids查询 map
-     */
-    @Select(SELECT_SQL + " WHERE id IN (#{primary})")
-    @MapKey("id")
-    Map<Long, Blog> getMapByPrimaryList(List<Long> primaryList);
-
-    @Select(SELECT_SQL + " limit 0, 30")
-    List<Blog> list();
-
-    /**
      * 统计
      */
     @Select("SELECT COUNT(1) FROM blog")
     long count();
-
-
-
-
-    class Provider {
-        /* 批量插入 */
-        public String batchInsert(Map<String,Object> map) {
-            List<Blog> blogList = (List<Blog>) map.get("list");
-            StringBuilder sb = new StringBuilder();
-            sb.append("INSERT INTO blog ("+COLLOMN+") VALUES ");
-            MessageFormat mf = new MessageFormat(
-                            "(#'{'list[{0}].id'}'," +
-                            "#'{'list[{0}].tags'}', " +
-                            "#'{'list[{0}].source'}', " +
-                            "#'{'list[{0}].title'}', " +
-                            "#'{'list[{0}].content'}', " +
-                            "#'{'list[{0}].summary'}', " +
-                            "#'{'list[{0}].uid'}', " +
-                            "#'{'list[{0}].status'}', " +
-                            "#'{'list[{0}].createTime'}', " +
-                            "#'{'list[{0}].updateTime'}', " +
-                            "#'{'list[{0}].publishTime'}')"
-            );
-
-            for (int i = 0; i < blogList.size(); i++) {
-                sb.append(mf.format(new Object[] {i}));
-                if (i < blogList.size() - 1)
-                    sb.append(",");
-            }
-            return sb.toString();
-        }
-
-        /* 批量删除 */
-//        public String batchDelete(Map map) {
-//            List<Student> students = (List<Student>) map.get("list");
-//            StringBuilder sb = new StringBuilder();
-//            sb.append("DELETE FROM student WHERE id IN (");
-//            for (int i = 0; i < students.size(); i++) {
-//                sb.append("'").append(students.get(i).getId()).append("'");
-//                if (i < students.size() - 1)
-//                    sb.append(",");
-//            }
-//            sb.append(")");
-//            return sb.toString();
-//        }
-    }
 }
