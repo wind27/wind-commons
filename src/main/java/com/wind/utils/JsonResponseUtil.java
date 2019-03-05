@@ -1,7 +1,7 @@
 package com.wind.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.wind.commons.ErrorCode;
+import com.wind.common.ErrorCode;
 
 /**
  * JsonResponseUtil

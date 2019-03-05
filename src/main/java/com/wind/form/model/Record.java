@@ -1,12 +1,12 @@
-package com.wind.auth.model;
+package com.wind.form.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
-* 权限表
-*/
-public class Permission implements Serializable {
+ * 表单记录表
+ */
+public class Record implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,17 +15,13 @@ public class Permission implements Serializable {
     */
     private Long id;
     /**
-    * 权限名称
+    * 表单id
     */
-    private String name;
+    private Long formId;
     /**
-    * 权限值
+    * 表单结果
     */
     private String value;
-    /**
-    * 状态：1、启用；0、停用
-    */
-    private Integer status;
     /**
     * 创建时间
     */
@@ -43,12 +39,12 @@ public class Permission implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getName () {
-        return this.name;
+    public Long getFormId () {
+        return this.formId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFormId(Long formId) {
+        this.formId = formId;
     }
     public String getValue () {
         return this.value;
@@ -56,13 +52,6 @@ public class Permission implements Serializable {
 
     public void setValue(String value) {
         this.value = value;
-    }
-    public Integer getStatus () {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
     public Date getCreateTime () {
         return this.createTime;
@@ -79,13 +68,12 @@ public class Permission implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public void copy(Permission permission) {
-        this.id = permission.id;
-        this.name = permission.name;
-        this.value = permission.value;
-        this.status = permission.status;
-        this.createTime = permission.createTime;
-        this.updateTime = permission.updateTime;
+    public void copy(Record record) {
+        this.id = record.id;
+        this.formId = record.formId;
+        this.value = record.value;
+        this.createTime = record.createTime;
+        this.updateTime = record.updateTime;
     }
 
 }

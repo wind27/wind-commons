@@ -116,13 +116,13 @@
                 <artifactId>codegen</artifactId>
                 <configuration>
                     <driverName>com.mysql.jdbc.Driver</driverName>
-                    <url>jdbc:mysql://mysql:3306/wind_auth</url>
+                    <url>jdbc:mysql://mysql:3306/wind_form</url>
                     <username>root</username>
                     <password>Dev123@wind.COM</password>
 
                     <rootDir>/Users/qianchun/wind/wind-commons/src/main/java/</rootDir>
-                    <parentPkg>com.wind.auth</parentPkg>
-                    <tableName>user</tableName>
+                    <parentPkg>com.wind.form</parentPkg>
+                    <tableName>record</tableName>
                 </configuration>
             </plugin>
         </plugins>
