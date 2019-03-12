@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
-* 用户表
-*/
+ * 用户表
+ */
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
