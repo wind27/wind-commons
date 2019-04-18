@@ -215,7 +215,7 @@ public interface UserDao {
 
             String limit = "";
             Page page = null;
-            if (param.get("page") != null) {
+            if (param.get("page") != null && (param.get("page") instanceof Page)) {
                 page = (Page) param.get("page");
             }
             if (page != null && page.getStart() != null) {

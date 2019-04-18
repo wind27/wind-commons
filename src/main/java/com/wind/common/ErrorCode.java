@@ -49,6 +49,16 @@ public enum ErrorCode {
      */
     DISABLED(7, "disabled"),
 
+    /**
+     * 超过访问次数
+     */
+    OVER_ACCESS_TIMES(8, "over_access_times"),
+
+    /**
+     * 未登录
+     */
+    NO_LOGIN(9, "no_login"),
+
     //------------------------------- 用户 errorcode 码 -------------------------------
     /**
      * 用户手机号已注册
@@ -61,9 +71,19 @@ public enum ErrorCode {
     USER_EXISTS(102, "userExists"),
 
     /**
+     * 角色已存在
+     */
+    ROLE_HAS_EXISTS(101, "userMobileHasRegist"),
+
+    /**
      * 用户不存在
      */
     USER_NOT_EXISTS(103, "userNotExists"),
+
+    /**
+     * 角色不存在
+     */
+    ROLE_NOT_EXISTS(103, "roleNotExists"),
 
     /**
      * token 失效
@@ -74,6 +94,11 @@ public enum ErrorCode {
      * token 错误
      */
     TOKEN_ERROR(105, "tokenIncorrect"),
+
+    /**
+     * 菜单URL 已存在
+     */
+    MENU_URL_HAS_EXISTS(105, "menuUrlHasExists"),
 
     //------------------------------- 图片 errorcode 码 -------------------------------
     FILE_UPLOAD_ERROR(201, "文件上传失败");

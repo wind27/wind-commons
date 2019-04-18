@@ -1,15 +1,17 @@
 package com.wind.auth.dao;
 
+import com.wind.auth.model.Permission;
 import com.wind.auth.model.Role;
 import com.wind.common.Page;
 import com.wind.annotation.DAO;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.jdbc.SQL;
+
+import java.util.List;
 import java.util.Map;
 
 /**
  * RoleDao
- * 
  */
 @DAO(catalog = "auth")
 public interface RoleDao {
@@ -24,7 +26,6 @@ public interface RoleDao {
      */
     String COLLOMN = "id, name, status, create_time, update_time";
 
-
     /**
      * 查询语句
      */
@@ -33,15 +34,14 @@ public interface RoleDao {
     /**
      * 新增
      */
-    @InsertProvider(type=RoleProvider.class, method="insertSelective")
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
-    int save(Role role );
-
+    @InsertProvider(type = RoleProvider.class, method = "insertSelective")
+    @SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = Long.class)
+    int save(Role role);
 
     /**
      * 更新
      */
-    @UpdateProvider(type=RoleProvider.class, method="updateByPrimaryKeySelective")
+    @UpdateProvider(type = RoleProvider.class, method = "updateByPrimaryKeySelective")
     int update(Role role);
 
     /**
@@ -51,10 +51,14 @@ public interface RoleDao {
     int delete(Long primary);
 
     /**
-    * 根据主键查询
-    */
-    @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
-    Role getByPrimary(Long primary );
+     * 根据主键查询
+     */
+    @Select(SELECT_SQL + " WHERE id = #{primary} limit 0, 1")
+    Role getByPrimary(Long primary);
+
+
+
+
 
     /**
      * 统计
