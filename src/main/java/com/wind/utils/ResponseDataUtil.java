@@ -12,7 +12,7 @@ import java.util.Map;
  * @author qianchun 17/7/13
  **/
 //ResponseDataUtil
-public class JsonResponseUtil {
+public class ResponseDataUtil {
 
     public static Map<String, Object> okTest() {
         Map<String, Object> result = new HashMap<>();

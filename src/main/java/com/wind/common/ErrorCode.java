@@ -59,6 +59,27 @@ public enum ErrorCode {
      */
     NO_LOGIN(9, "no_login"),
 
+    /**
+     * 旧密码错误
+     */
+    OLD_PASS_INCORRECT(10, "oldPasswordIncorrect"),
+
+    /**
+     * 图片验证码超时
+     */
+    IMAGE_TIMEOUT(11, "imageTimeout"),
+
+    /**
+     * 图片验证码验证失败
+     */
+    IMAGE_AUTH_FAIL(12, "imageAuthFail"),
+
+    /**
+     * 找回密码或注册流程步骤顺序错误
+     */
+    MISTAKE_STEP(13, "mistakeStep"),
+
+
     //------------------------------- 用户 errorcode 码 -------------------------------
     /**
      * 用户手机号已注册
