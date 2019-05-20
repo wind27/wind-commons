@@ -135,7 +135,7 @@
 
                     <rootDir>/Users/qianchun/wind/wind-commons/src/main/java/</rootDir>
                     <parentPkg>com.wind.auth</parentPkg>
-                    <tableName>user</tableName>
+                    <tableName>user_token</tableName>
                 </configuration>
             </plugin>
         </plugins>
