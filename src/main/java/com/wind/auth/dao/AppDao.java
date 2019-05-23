@@ -28,7 +28,7 @@ public interface AppDao {
     /**
      * 查询语句
      */
-    String SELECT_SQL = "SELECT " + COLLOMN + " FROM app";
+    String SELECT_SQL = "SELECT " + COLLOMN + " FROM app ";
 
     /**
      * 新增
@@ -54,6 +54,14 @@ public interface AppDao {
     * 根据主键查询
     */
     @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
+    @Results(id = "appResult", value={
+        @Result(column="id",property="id")
+        , @Result(column="name",property="name")
+        , @Result(column="home_page_url",property="homePageUrl")
+        , @Result(column="status",property="status")
+        , @Result(column="create_time",property="createTime")
+        , @Result(column="update_time",property="updateTime")
+    })
     App getByPrimary(Long primary );
 
     /**

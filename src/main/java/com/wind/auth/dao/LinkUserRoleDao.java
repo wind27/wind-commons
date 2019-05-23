@@ -28,7 +28,7 @@ public interface LinkUserRoleDao {
     /**
      * 查询语句
      */
-    String SELECT_SQL = "SELECT " + COLLOMN + " FROM link_user_role";
+    String SELECT_SQL = "SELECT " + COLLOMN + " FROM link_user_role ";
 
     /**
      * 新增
@@ -54,6 +54,13 @@ public interface LinkUserRoleDao {
     * 根据主键查询
     */
     @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
+    @Results(id = "linkUserRoleResult", value={
+        @Result(column="id",property="id")
+        , @Result(column="user_id",property="userId")
+        , @Result(column="role_id",property="roleId")
+        , @Result(column="create_time",property="createTime")
+        , @Result(column="update_time",property="updateTime")
+    })
     LinkUserRole getByPrimary(Long primary );
 
     /**

@@ -28,7 +28,7 @@ public interface MenuDao {
     /**
      * 查询语句
      */
-    String SELECT_SQL = "SELECT " + COLLOMN + " FROM menu";
+    String SELECT_SQL = "SELECT " + COLLOMN + " FROM menu ";
 
     /**
      * 新增
@@ -54,6 +54,16 @@ public interface MenuDao {
     * 根据主键查询
     */
     @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
+    @Results(id = "menuResult", value={
+        @Result(column="id",property="id")
+        , @Result(column="name",property="name")
+        , @Result(column="status",property="status")
+        , @Result(column="app_id",property="appId")
+        , @Result(column="url",property="url")
+        , @Result(column="create_time",property="createTime")
+        , @Result(column="update_time",property="updateTime")
+        , @Result(column="parent_id",property="parentId")
+    })
     Menu getByPrimary(Long primary );
 
     /**

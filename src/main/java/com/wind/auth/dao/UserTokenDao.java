@@ -22,13 +22,13 @@ public interface UserTokenDao {
     /**
      * 列名
      */
-    String COLLOMN = "id, user_id, token, client_ip, create_time";
+    String COLLOMN = "id, user_id, token, client_ip, create_time, username";
 
 
     /**
      * 查询语句
      */
-    String SELECT_SQL = "SELECT " + COLLOMN + " FROM user_token";
+    String SELECT_SQL = "SELECT " + COLLOMN + " FROM user_token ";
 
     /**
      * 新增
@@ -54,6 +54,14 @@ public interface UserTokenDao {
     * 根据主键查询
     */
     @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
+    @Results(id = "userTokenResult", value={
+        @Result(column="id",property="#{id")
+        , @Result(column="user_id",property="#{userId")
+        , @Result(column="token",property="#{token")
+        , @Result(column="client_ip",property="#{clientIp")
+        , @Result(column="create_time",property="#{createTime")
+        , @Result(column="username",property="#{username")
+    })
     UserToken getByPrimary(Long primary );
 
     /**
@@ -82,6 +90,9 @@ public interface UserTokenDao {
             if (userToken.getCreateTime() != null) {
                 sql.VALUES("create_time", "#{createTime}");
             }
+            if (userToken.getUsername() != null) {
+                sql.VALUES("username", "#{username}");
+            }
 
             return sql.toString();
         }
@@ -103,6 +114,9 @@ public interface UserTokenDao {
             }
             if (userToken.getCreateTime() != null) {
                 sql.SET("create_time = #{createTime}");
+            }
+            if (userToken.getUsername() != null) {
+                sql.SET("username = #{username}");
             }
             sql.WHERE("id = #{id}");
             return sql.toString();
@@ -141,6 +155,11 @@ public interface UserTokenDao {
                 condition.append(" create_time = #{createTime} ");
             } else if (condition.length() > 0 && param.get("createTime") != null) {
                 condition.append(" and create_time = #{createTime} ");
+            }
+            if (condition.length() == 0 && param.get("username") != null) {
+                condition.append(" username = #{username} ");
+            } else if (condition.length() > 0 && param.get("username") != null) {
+                condition.append(" and username = #{username} ");
             }
             sql.FROM(TABLE_NAME);
             if (condition.length() > 0) {
@@ -191,6 +210,11 @@ public interface UserTokenDao {
                 condition.append(" create_time = #{createTime} ");
             } else if (condition.length() > 0 && param.get("createTime") != null) {
                 condition.append(" and create_time = #{createTime} ");
+            }
+            if (condition.length() == 0 && param.get("username") != null) {
+                condition.append(" username = #{username} ");
+            } else if (condition.length() > 0 && param.get("username") != null) {
+                condition.append(" and username = #{username} ");
             }
             sql.FROM(TABLE_NAME);
             if (condition.length() > 0) {

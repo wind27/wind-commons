@@ -28,7 +28,7 @@ public interface UserDao {
     /**
      * 查询语句
      */
-    String SELECT_SQL = "SELECT " + COLLOMN + " FROM user";
+    String SELECT_SQL = "SELECT " + COLLOMN + " FROM user ";
 
     /**
      * 新增
@@ -54,6 +54,19 @@ public interface UserDao {
     * 根据主键查询
     */
     @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
+    @Results(id = "userResult", value={
+        @Result(column="id",property="id")
+        , @Result(column="username",property="username")
+        , @Result(column="realname",property="realname")
+        , @Result(column="salt",property="salt")
+        , @Result(column="password",property="password")
+        , @Result(column="status",property="status")
+        , @Result(column="create_time",property="createTime")
+        , @Result(column="update_time",property="updateTime")
+        , @Result(column="mobile",property="mobile")
+        , @Result(column="idcard",property="idcard")
+        , @Result(column="email",property="email")
+    })
     User getByPrimary(Long primary );
 
     /**
@@ -215,7 +228,7 @@ public interface UserDao {
 
             String limit = "";
             Page page = null;
-            if (param.get("page") != null && (param.get("page") instanceof Page)) {
+            if (param.get("page") != null) {
                 page = (Page) param.get("page");
             }
             if (page != null && page.getStart() != null) {

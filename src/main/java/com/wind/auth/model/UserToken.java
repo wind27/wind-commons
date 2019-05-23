@@ -30,6 +30,10 @@ public class UserToken implements Serializable {
     * åˆ›å»ºæ—¶é—´
     */
     private Date createTime;
+    /**
+    * ç”¨æˆ·å
+    */
+    private String username;
 
 
     public Long getId () {
@@ -67,6 +71,13 @@ public class UserToken implements Serializable {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+    public String getUsername () {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public void copy(UserToken userToken) {
         this.id = userToken.id;
@@ -74,6 +85,7 @@ public class UserToken implements Serializable {
         this.token = userToken.token;
         this.clientIp = userToken.clientIp;
         this.createTime = userToken.createTime;
+        this.username = userToken.username;
     }
 
 }

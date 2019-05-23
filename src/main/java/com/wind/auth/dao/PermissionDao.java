@@ -28,7 +28,7 @@ public interface PermissionDao {
     /**
      * 查询语句
      */
-    String SELECT_SQL = "SELECT " + COLLOMN + " FROM permission";
+    String SELECT_SQL = "SELECT " + COLLOMN + " FROM permission ";
 
     /**
      * 新增
@@ -54,6 +54,14 @@ public interface PermissionDao {
     * 根据主键查询
     */
     @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
+    @Results(id = "permissionResult", value={
+        @Result(column="id",property="id")
+        , @Result(column="name",property="name")
+        , @Result(column="value",property="value")
+        , @Result(column="status",property="status")
+        , @Result(column="create_time",property="createTime")
+        , @Result(column="update_time",property="updateTime")
+    })
     Permission getByPrimary(Long primary );
 
     /**
