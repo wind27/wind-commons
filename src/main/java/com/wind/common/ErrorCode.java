@@ -17,7 +17,6 @@ public enum ErrorCode {
      */
     FAIL(1, "fail"),
 
-
     /**
      * 系统异常
      */
@@ -32,7 +31,6 @@ public enum ErrorCode {
      * 没有操作权限
      */
     NO_PREMISSION(4, "no_premission"),
-
 
     /**
      * 不存在
@@ -59,11 +57,81 @@ public enum ErrorCode {
      */
     NO_LOGIN(9, "no_login"),
 
+    // ------------------------------- 用户 errorcode 码 -------------------------------
+    /**
+     * 用户手机号已注册
+     */
+    AUTH_USER_MOBILE_HAS_REGIST(101, "userMobileHasRegist"),
+
+    /**
+     * 用户已存在
+     */
+    AUTH_USER_EXISTS(102, "userExists"),
+
+    /**
+     * 用户手机号已存在
+     */
+    AUTH_USER_MOBILE_EXISTS(102, "userMobileExists"),
+
+    /**
+     * 用户不存在
+     */
+    AUTH_USER_NOT_EXISTS(103, "userNotExists"),
+
     /**
      * 旧密码错误
      */
-    OLD_PASS_INCORRECT(10, "oldPasswordIncorrect"),
+    AUTH_USER_OLD_PASS_INCORRECT(10, "oldPasswordIncorrect"),
 
+    /**
+     * 找回密码或注册流程步骤顺序错误
+     */
+    AUTH_USER_MISTAKE_STEP(13, "mistakeStep"),
+
+    // ------------------------------- 角色 errorcode 码 -------------------------------
+    /**
+     * 角色已存在
+     */
+    AUTH_ROLE_EXISTS(101, "roleExists"),
+
+    /**
+     * 角色不存在
+     */
+    AUTH_ROLE_NOT_EXISTS(103, "roleNotExists"),
+
+    // ------------------------------- TOKEN errorcode 码 -------------------------------
+    /**
+     * token 失效
+     */
+    AUTH_TOKEN_EXPIRED(104, "tokenExpired"),
+
+    /**
+     * token 错误
+     */
+    AUTH_TOKEN_ERROR(105, "tokenIncorrect"),
+
+    // ------------------------------- 菜单 errorcode 码 -------------------------------
+
+    /**
+     * 菜单URL 已存在
+     */
+    AUTH_MENU_URL_EXISTS(105, "menuUrlExists"),
+
+    AUTH_MENU_NOT_EXISTS(106, "menuNotExists"),
+
+    // ------------------------------- 权限 errorcode 码 -------------------------------
+
+    /**
+     * 权限value已存在
+     */
+    AUTH_PERMISSION_VALUE_EXISTS(105, "permissionValueExists"),
+
+    /**
+     * 权限不存在
+     */
+    AUTH_PERMISSION_NOT_EXISTS(105, "permissionNotExists"),
+
+    // ------------------------------- 图片 errorcode 码 -------------------------------
     /**
      * 图片验证码超时
      */
@@ -75,55 +143,9 @@ public enum ErrorCode {
     IMAGE_AUTH_FAIL(12, "imageAuthFail"),
 
     /**
-     * 找回密码或注册流程步骤顺序错误
+     * 图片上传失败
      */
-    MISTAKE_STEP(13, "mistakeStep"),
-
-
-    //------------------------------- 用户 errorcode 码 -------------------------------
-    /**
-     * 用户手机号已注册
-     */
-    USER_MOBILE_HAS_REGIST(101, "userMobileHasRegist"),
-
-    /**
-     * 用户已存在
-     */
-    USER_EXISTS(102, "userExists"),
-
-    /**
-     * 角色已存在
-     */
-    ROLE_HAS_EXISTS(101, "userMobileHasRegist"),
-
-    /**
-     * 用户不存在
-     */
-    USER_NOT_EXISTS(103, "userNotExists"),
-
-    /**
-     * 角色不存在
-     */
-    ROLE_NOT_EXISTS(103, "roleNotExists"),
-
-    /**
-     * token 失效
-     */
-    TOKEN_EXPIRED(104, "tokenExpired"),
-
-    /**
-     * token 错误
-     */
-    TOKEN_ERROR(105, "tokenIncorrect"),
-
-    /**
-     * 菜单URL 已存在
-     */
-    MENU_URL_HAS_EXISTS(105, "menuUrlHasExists"),
-
-    //------------------------------- 图片 errorcode 码 -------------------------------
     FILE_UPLOAD_ERROR(201, "文件上传失败");
-
 
     private Integer value;
 
