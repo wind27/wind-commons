@@ -27,13 +27,17 @@ public class Permission implements Serializable {
     */
     private Integer status;
     /**
-    * 创建时间
+    * ????
     */
     private Date createTime;
     /**
-    * 更新时间
+    * ????
     */
     private Date updateTime;
+    /**
+    * parent_id
+    */
+    private Long parentId;
 
 
     public Long getId () {
@@ -78,6 +82,13 @@ public class Permission implements Serializable {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+    public Long getParentId () {
+        return this.parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 
     public void copy(Permission permission) {
         this.id = permission.id;
@@ -86,6 +97,7 @@ public class Permission implements Serializable {
         this.status = permission.status;
         this.createTime = permission.createTime;
         this.updateTime = permission.updateTime;
+        this.parentId = permission.parentId;
     }
 
 }

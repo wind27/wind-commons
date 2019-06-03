@@ -22,7 +22,7 @@ public interface PermissionDao {
     /**
      * 列名
      */
-    String COLLOMN = "id, name, value, status, create_time, update_time";
+    String COLLOMN = "id, name, value, status, create_time, update_time, parent_id";
 
 
     /**
@@ -61,6 +61,7 @@ public interface PermissionDao {
         , @Result(column="status",property="status")
         , @Result(column="create_time",property="createTime")
         , @Result(column="update_time",property="updateTime")
+        , @Result(column="parent_id",property="parentId")
     })
     Permission getByPrimary(Long primary );
 
@@ -93,6 +94,9 @@ public interface PermissionDao {
             if (permission.getUpdateTime() != null) {
                 sql.VALUES("update_time", "#{updateTime}");
             }
+            if (permission.getParentId() != null) {
+                sql.VALUES("parent_id", "#{parentId}");
+            }
 
             return sql.toString();
         }
@@ -117,6 +121,9 @@ public interface PermissionDao {
             }
             if (permission.getUpdateTime() != null) {
                 sql.SET("update_time = #{updateTime}");
+            }
+            if (permission.getParentId() != null) {
+                sql.SET("parent_id = #{parentId}");
             }
             sql.WHERE("id = #{id}");
             return sql.toString();
@@ -160,6 +167,11 @@ public interface PermissionDao {
                 condition.append(" update_time = #{updateTime} ");
             } else if (condition.length() > 0 && param.get("updateTime") != null) {
                 condition.append(" and update_time = #{updateTime} ");
+            }
+            if (condition.length() == 0 && param.get("parentId") != null) {
+                condition.append(" parent_id = #{parentId} ");
+            } else if (condition.length() > 0 && param.get("parentId") != null) {
+                condition.append(" and parent_id = #{parentId} ");
             }
             sql.FROM(TABLE_NAME);
             if (condition.length() > 0) {
@@ -215,6 +227,11 @@ public interface PermissionDao {
                 condition.append(" update_time = #{updateTime} ");
             } else if (condition.length() > 0 && param.get("updateTime") != null) {
                 condition.append(" and update_time = #{updateTime} ");
+            }
+            if (condition.length() == 0 && param.get("parentId") != null) {
+                condition.append(" parent_id = #{parentId} ");
+            } else if (condition.length() > 0 && param.get("parentId") != null) {
+                condition.append(" and parent_id = #{parentId} ");
             }
             sql.FROM(TABLE_NAME);
             if (condition.length() > 0) {
