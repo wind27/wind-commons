@@ -11,33 +11,25 @@ public class CodeItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-    * 
+    * 主键id
     */
     private Long id;
     /**
-    * 所属代码集code
+    * 所属namespace
     */
-    private String codeSet;
+    private Long codeNamespaceId;
     /**
-    * 上级代码code
+    * 代码集合code
     */
-    private String parentCode;
+    private String codeSetKey;
     /**
-    * 代码名称
+    * key
     */
-    private String codeName;
+    private String key;
     /**
-    * 代码值
+    * value
     */
-    private String codeValue;
-    /**
-    * 汉语拼音（全拼）
-    */
-    private String zhSpell;
-    /**
-    * 汉语拼音（简拼）
-    */
-    private String zhSpellShort;
+    private String value;
     /**
     * 顺序号
     */
@@ -47,29 +39,25 @@ public class CodeItem implements Serializable {
     */
     private String remark;
     /**
-    * 状态: 1启用; 0 停用
+    * 状态 1 启用 0 停用
     */
     private Integer status;
     /**
-    * 创建人
+    * 创建用户
     */
-    private String createUser;
+    private String createAccountId;
     /**
-    * 最近修改人
+    * 更新用户
     */
-    private String updateUser;
+    private String updateAccountId;
     /**
-    * 当条记录的创建时间
+    * 创建时间
     */
     private Date createTime;
     /**
     * 更新时间
     */
     private Date updateTime;
-    /**
-    * 生成服务端js时，生成到指定的N个js文件中，该字段是多个js文件名，以逗号分隔
-    */
-    private String belong;
 
 
     public Long getId () {
@@ -79,47 +67,33 @@ public class CodeItem implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getCodeSet () {
-        return this.codeSet;
+    public Long getCodeNamespaceId () {
+        return this.codeNamespaceId;
     }
 
-    public void setCodeSet(String codeSet) {
-        this.codeSet = codeSet;
+    public void setCodeNamespaceId(Long codeNamespaceId) {
+        this.codeNamespaceId = codeNamespaceId;
     }
-    public String getParentCode () {
-        return this.parentCode;
-    }
-
-    public void setParentCode(String parentCode) {
-        this.parentCode = parentCode;
-    }
-    public String getCodeName () {
-        return this.codeName;
+    public String getCodeSetKey () {
+        return this.codeSetKey;
     }
 
-    public void setCodeName(String codeName) {
-        this.codeName = codeName;
+    public void setCodeSetKey(String codeSetKey) {
+        this.codeSetKey = codeSetKey;
     }
-    public String getCodeValue () {
-        return this.codeValue;
-    }
-
-    public void setCodeValue(String codeValue) {
-        this.codeValue = codeValue;
-    }
-    public String getZhSpell () {
-        return this.zhSpell;
+    public String getKey () {
+        return this.key;
     }
 
-    public void setZhSpell(String zhSpell) {
-        this.zhSpell = zhSpell;
+    public void setKey(String key) {
+        this.key = key;
     }
-    public String getZhSpellShort () {
-        return this.zhSpellShort;
+    public String getValue () {
+        return this.value;
     }
 
-    public void setZhSpellShort(String zhSpellShort) {
-        this.zhSpellShort = zhSpellShort;
+    public void setValue(String value) {
+        this.value = value;
     }
     public Integer getSn () {
         return this.sn;
@@ -142,19 +116,19 @@ public class CodeItem implements Serializable {
     public void setStatus(Integer status) {
         this.status = status;
     }
-    public String getCreateUser () {
-        return this.createUser;
+    public String getCreateAccountId () {
+        return this.createAccountId;
     }
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser;
+    public void setCreateAccountId(String createAccountId) {
+        this.createAccountId = createAccountId;
     }
-    public String getUpdateUser () {
-        return this.updateUser;
+    public String getUpdateAccountId () {
+        return this.updateAccountId;
     }
 
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
+    public void setUpdateAccountId(String updateAccountId) {
+        this.updateAccountId = updateAccountId;
     }
     public Date getCreateTime () {
         return this.createTime;
@@ -170,30 +144,20 @@ public class CodeItem implements Serializable {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-    public String getBelong () {
-        return this.belong;
-    }
-
-    public void setBelong(String belong) {
-        this.belong = belong;
-    }
 
     public void copy(CodeItem codeItem) {
         this.id = codeItem.id;
-        this.codeSet = codeItem.codeSet;
-        this.parentCode = codeItem.parentCode;
-        this.codeName = codeItem.codeName;
-        this.codeValue = codeItem.codeValue;
-        this.zhSpell = codeItem.zhSpell;
-        this.zhSpellShort = codeItem.zhSpellShort;
+        this.codeNamespaceId = codeItem.codeNamespaceId;
+        this.codeSetKey = codeItem.codeSetKey;
+        this.key = codeItem.key;
+        this.value = codeItem.value;
         this.sn = codeItem.sn;
         this.remark = codeItem.remark;
         this.status = codeItem.status;
-        this.createUser = codeItem.createUser;
-        this.updateUser = codeItem.updateUser;
+        this.createAccountId = codeItem.createAccountId;
+        this.updateAccountId = codeItem.updateAccountId;
         this.createTime = codeItem.createTime;
         this.updateTime = codeItem.updateTime;
-        this.belong = codeItem.belong;
     }
 
 }

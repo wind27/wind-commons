@@ -22,7 +22,7 @@ public interface CodeItemDao {
     /**
      * 列名
      */
-    String COLLOMN = "id, code_set, parent_code, code_name, code_value, zh_spell, zh_spell_short, sn, remark, status, create_user, update_user, create_time, update_time, belong";
+    String COLLOMN = "id, code_namespace_id, code_set_key, key, value, sn, remark, status, create_account_id, update_account_id, create_time, update_time";
 
 
     /**
@@ -56,20 +56,17 @@ public interface CodeItemDao {
     @Select(SELECT_SQL+ " WHERE id = #{primary} limit 0, 1")
     @Results(id = "codeItemResult", value={
         @Result(column="id",property="id")
-        , @Result(column="code_set",property="codeSet")
-        , @Result(column="parent_code",property="parentCode")
-        , @Result(column="code_name",property="codeName")
-        , @Result(column="code_value",property="codeValue")
-        , @Result(column="zh_spell",property="zhSpell")
-        , @Result(column="zh_spell_short",property="zhSpellShort")
+        , @Result(column="code_namespace_id",property="codeNamespaceId")
+        , @Result(column="code_set_key",property="codeSetKey")
+        , @Result(column="key",property="key")
+        , @Result(column="value",property="value")
         , @Result(column="sn",property="sn")
         , @Result(column="remark",property="remark")
         , @Result(column="status",property="status")
-        , @Result(column="create_user",property="createUser")
-        , @Result(column="update_user",property="updateUser")
+        , @Result(column="create_account_id",property="createAccountId")
+        , @Result(column="update_account_id",property="updateAccountId")
         , @Result(column="create_time",property="createTime")
         , @Result(column="update_time",property="updateTime")
-        , @Result(column="belong",property="belong")
     })
     CodeItem getByPrimary(Long primary );
 
@@ -87,23 +84,17 @@ public interface CodeItemDao {
             if (codeItem.getId() != null) {
                 sql.VALUES("id", "#{id}");
             }
-            if (codeItem.getCodeSet() != null) {
-                sql.VALUES("code_set", "#{codeSet}");
+            if (codeItem.getCodeNamespaceId() != null) {
+                sql.VALUES("code_namespace_id", "#{codeNamespaceId}");
             }
-            if (codeItem.getParentCode() != null) {
-                sql.VALUES("parent_code", "#{parentCode}");
+            if (codeItem.getCodeSetKey() != null) {
+                sql.VALUES("code_set_key", "#{codeSetKey}");
             }
-            if (codeItem.getCodeName() != null) {
-                sql.VALUES("code_name", "#{codeName}");
+            if (codeItem.getKey() != null) {
+                sql.VALUES("key", "#{key}");
             }
-            if (codeItem.getCodeValue() != null) {
-                sql.VALUES("code_value", "#{codeValue}");
-            }
-            if (codeItem.getZhSpell() != null) {
-                sql.VALUES("zh_spell", "#{zhSpell}");
-            }
-            if (codeItem.getZhSpellShort() != null) {
-                sql.VALUES("zh_spell_short", "#{zhSpellShort}");
+            if (codeItem.getValue() != null) {
+                sql.VALUES("value", "#{value}");
             }
             if (codeItem.getSn() != null) {
                 sql.VALUES("sn", "#{sn}");
@@ -114,20 +105,17 @@ public interface CodeItemDao {
             if (codeItem.getStatus() != null) {
                 sql.VALUES("status", "#{status}");
             }
-            if (codeItem.getCreateUser() != null) {
-                sql.VALUES("create_user", "#{createUser}");
+            if (codeItem.getCreateAccountId() != null) {
+                sql.VALUES("create_account_id", "#{createAccountId}");
             }
-            if (codeItem.getUpdateUser() != null) {
-                sql.VALUES("update_user", "#{updateUser}");
+            if (codeItem.getUpdateAccountId() != null) {
+                sql.VALUES("update_account_id", "#{updateAccountId}");
             }
             if (codeItem.getCreateTime() != null) {
                 sql.VALUES("create_time", "#{createTime}");
             }
             if (codeItem.getUpdateTime() != null) {
                 sql.VALUES("update_time", "#{updateTime}");
-            }
-            if (codeItem.getBelong() != null) {
-                sql.VALUES("belong", "#{belong}");
             }
 
             return sql.toString();
@@ -139,23 +127,17 @@ public interface CodeItemDao {
             if (codeItem.getId() != null) {
                 sql.SET("id = #{id}");
             }
-            if (codeItem.getCodeSet() != null) {
-                sql.SET("code_set = #{codeSet}");
+            if (codeItem.getCodeNamespaceId() != null) {
+                sql.SET("code_namespace_id = #{codeNamespaceId}");
             }
-            if (codeItem.getParentCode() != null) {
-                sql.SET("parent_code = #{parentCode}");
+            if (codeItem.getCodeSetKey() != null) {
+                sql.SET("code_set_key = #{codeSetKey}");
             }
-            if (codeItem.getCodeName() != null) {
-                sql.SET("code_name = #{codeName}");
+            if (codeItem.getKey() != null) {
+                sql.SET("key = #{key}");
             }
-            if (codeItem.getCodeValue() != null) {
-                sql.SET("code_value = #{codeValue}");
-            }
-            if (codeItem.getZhSpell() != null) {
-                sql.SET("zh_spell = #{zhSpell}");
-            }
-            if (codeItem.getZhSpellShort() != null) {
-                sql.SET("zh_spell_short = #{zhSpellShort}");
+            if (codeItem.getValue() != null) {
+                sql.SET("value = #{value}");
             }
             if (codeItem.getSn() != null) {
                 sql.SET("sn = #{sn}");
@@ -166,20 +148,17 @@ public interface CodeItemDao {
             if (codeItem.getStatus() != null) {
                 sql.SET("status = #{status}");
             }
-            if (codeItem.getCreateUser() != null) {
-                sql.SET("create_user = #{createUser}");
+            if (codeItem.getCreateAccountId() != null) {
+                sql.SET("create_account_id = #{createAccountId}");
             }
-            if (codeItem.getUpdateUser() != null) {
-                sql.SET("update_user = #{updateUser}");
+            if (codeItem.getUpdateAccountId() != null) {
+                sql.SET("update_account_id = #{updateAccountId}");
             }
             if (codeItem.getCreateTime() != null) {
                 sql.SET("create_time = #{createTime}");
             }
             if (codeItem.getUpdateTime() != null) {
                 sql.SET("update_time = #{updateTime}");
-            }
-            if (codeItem.getBelong() != null) {
-                sql.SET("belong = #{belong}");
             }
             sql.WHERE("id = #{id}");
             return sql.toString();
@@ -199,35 +178,25 @@ public interface CodeItemDao {
             } else if (condition.length() > 0 && param.get("id") != null) {
                 condition.append(" and id = #{id} ");
             }
-            if (condition.length() == 0 && param.get("codeSet") != null) {
-                condition.append(" code_set = #{codeSet} ");
-            } else if (condition.length() > 0 && param.get("codeSet") != null) {
-                condition.append(" and code_set = #{codeSet} ");
+            if (condition.length() == 0 && param.get("codeNamespaceId") != null) {
+                condition.append(" code_namespace_id = #{codeNamespaceId} ");
+            } else if (condition.length() > 0 && param.get("codeNamespaceId") != null) {
+                condition.append(" and code_namespace_id = #{codeNamespaceId} ");
             }
-            if (condition.length() == 0 && param.get("parentCode") != null) {
-                condition.append(" parent_code = #{parentCode} ");
-            } else if (condition.length() > 0 && param.get("parentCode") != null) {
-                condition.append(" and parent_code = #{parentCode} ");
+            if (condition.length() == 0 && param.get("codeSetKey") != null) {
+                condition.append(" code_set_key = #{codeSetKey} ");
+            } else if (condition.length() > 0 && param.get("codeSetKey") != null) {
+                condition.append(" and code_set_key = #{codeSetKey} ");
             }
-            if (condition.length() == 0 && param.get("codeName") != null) {
-                condition.append(" code_name = #{codeName} ");
-            } else if (condition.length() > 0 && param.get("codeName") != null) {
-                condition.append(" and code_name = #{codeName} ");
+            if (condition.length() == 0 && param.get("key") != null) {
+                condition.append(" key = #{key} ");
+            } else if (condition.length() > 0 && param.get("key") != null) {
+                condition.append(" and key = #{key} ");
             }
-            if (condition.length() == 0 && param.get("codeValue") != null) {
-                condition.append(" code_value = #{codeValue} ");
-            } else if (condition.length() > 0 && param.get("codeValue") != null) {
-                condition.append(" and code_value = #{codeValue} ");
-            }
-            if (condition.length() == 0 && param.get("zhSpell") != null) {
-                condition.append(" zh_spell = #{zhSpell} ");
-            } else if (condition.length() > 0 && param.get("zhSpell") != null) {
-                condition.append(" and zh_spell = #{zhSpell} ");
-            }
-            if (condition.length() == 0 && param.get("zhSpellShort") != null) {
-                condition.append(" zh_spell_short = #{zhSpellShort} ");
-            } else if (condition.length() > 0 && param.get("zhSpellShort") != null) {
-                condition.append(" and zh_spell_short = #{zhSpellShort} ");
+            if (condition.length() == 0 && param.get("value") != null) {
+                condition.append(" value = #{value} ");
+            } else if (condition.length() > 0 && param.get("value") != null) {
+                condition.append(" and value = #{value} ");
             }
             if (condition.length() == 0 && param.get("sn") != null) {
                 condition.append(" sn = #{sn} ");
@@ -244,15 +213,15 @@ public interface CodeItemDao {
             } else if (condition.length() > 0 && param.get("status") != null) {
                 condition.append(" and status = #{status} ");
             }
-            if (condition.length() == 0 && param.get("createUser") != null) {
-                condition.append(" create_user = #{createUser} ");
-            } else if (condition.length() > 0 && param.get("createUser") != null) {
-                condition.append(" and create_user = #{createUser} ");
+            if (condition.length() == 0 && param.get("createAccountId") != null) {
+                condition.append(" create_account_id = #{createAccountId} ");
+            } else if (condition.length() > 0 && param.get("createAccountId") != null) {
+                condition.append(" and create_account_id = #{createAccountId} ");
             }
-            if (condition.length() == 0 && param.get("updateUser") != null) {
-                condition.append(" update_user = #{updateUser} ");
-            } else if (condition.length() > 0 && param.get("updateUser") != null) {
-                condition.append(" and update_user = #{updateUser} ");
+            if (condition.length() == 0 && param.get("updateAccountId") != null) {
+                condition.append(" update_account_id = #{updateAccountId} ");
+            } else if (condition.length() > 0 && param.get("updateAccountId") != null) {
+                condition.append(" and update_account_id = #{updateAccountId} ");
             }
             if (condition.length() == 0 && param.get("createTime") != null) {
                 condition.append(" create_time = #{createTime} ");
@@ -263,11 +232,6 @@ public interface CodeItemDao {
                 condition.append(" update_time = #{updateTime} ");
             } else if (condition.length() > 0 && param.get("updateTime") != null) {
                 condition.append(" and update_time = #{updateTime} ");
-            }
-            if (condition.length() == 0 && param.get("belong") != null) {
-                condition.append(" belong = #{belong} ");
-            } else if (condition.length() > 0 && param.get("belong") != null) {
-                condition.append(" and belong = #{belong} ");
             }
             sql.FROM(TABLE_NAME);
             if (condition.length() > 0) {
@@ -299,35 +263,25 @@ public interface CodeItemDao {
             } else if (condition.length() > 0 && param.get("id") != null) {
                 condition.append(" and id = #{id} ");
             }
-            if (condition.length() == 0 && param.get("codeSet") != null) {
-                condition.append(" code_set = #{codeSet} ");
-            } else if (condition.length() > 0 && param.get("codeSet") != null) {
-                condition.append(" and code_set = #{codeSet} ");
+            if (condition.length() == 0 && param.get("codeNamespaceId") != null) {
+                condition.append(" code_namespace_id = #{codeNamespaceId} ");
+            } else if (condition.length() > 0 && param.get("codeNamespaceId") != null) {
+                condition.append(" and code_namespace_id = #{codeNamespaceId} ");
             }
-            if (condition.length() == 0 && param.get("parentCode") != null) {
-                condition.append(" parent_code = #{parentCode} ");
-            } else if (condition.length() > 0 && param.get("parentCode") != null) {
-                condition.append(" and parent_code = #{parentCode} ");
+            if (condition.length() == 0 && param.get("codeSetKey") != null) {
+                condition.append(" code_set_key = #{codeSetKey} ");
+            } else if (condition.length() > 0 && param.get("codeSetKey") != null) {
+                condition.append(" and code_set_key = #{codeSetKey} ");
             }
-            if (condition.length() == 0 && param.get("codeName") != null) {
-                condition.append(" code_name = #{codeName} ");
-            } else if (condition.length() > 0 && param.get("codeName") != null) {
-                condition.append(" and code_name = #{codeName} ");
+            if (condition.length() == 0 && param.get("key") != null) {
+                condition.append(" key = #{key} ");
+            } else if (condition.length() > 0 && param.get("key") != null) {
+                condition.append(" and key = #{key} ");
             }
-            if (condition.length() == 0 && param.get("codeValue") != null) {
-                condition.append(" code_value = #{codeValue} ");
-            } else if (condition.length() > 0 && param.get("codeValue") != null) {
-                condition.append(" and code_value = #{codeValue} ");
-            }
-            if (condition.length() == 0 && param.get("zhSpell") != null) {
-                condition.append(" zh_spell = #{zhSpell} ");
-            } else if (condition.length() > 0 && param.get("zhSpell") != null) {
-                condition.append(" and zh_spell = #{zhSpell} ");
-            }
-            if (condition.length() == 0 && param.get("zhSpellShort") != null) {
-                condition.append(" zh_spell_short = #{zhSpellShort} ");
-            } else if (condition.length() > 0 && param.get("zhSpellShort") != null) {
-                condition.append(" and zh_spell_short = #{zhSpellShort} ");
+            if (condition.length() == 0 && param.get("value") != null) {
+                condition.append(" value = #{value} ");
+            } else if (condition.length() > 0 && param.get("value") != null) {
+                condition.append(" and value = #{value} ");
             }
             if (condition.length() == 0 && param.get("sn") != null) {
                 condition.append(" sn = #{sn} ");
@@ -344,15 +298,15 @@ public interface CodeItemDao {
             } else if (condition.length() > 0 && param.get("status") != null) {
                 condition.append(" and status = #{status} ");
             }
-            if (condition.length() == 0 && param.get("createUser") != null) {
-                condition.append(" create_user = #{createUser} ");
-            } else if (condition.length() > 0 && param.get("createUser") != null) {
-                condition.append(" and create_user = #{createUser} ");
+            if (condition.length() == 0 && param.get("createAccountId") != null) {
+                condition.append(" create_account_id = #{createAccountId} ");
+            } else if (condition.length() > 0 && param.get("createAccountId") != null) {
+                condition.append(" and create_account_id = #{createAccountId} ");
             }
-            if (condition.length() == 0 && param.get("updateUser") != null) {
-                condition.append(" update_user = #{updateUser} ");
-            } else if (condition.length() > 0 && param.get("updateUser") != null) {
-                condition.append(" and update_user = #{updateUser} ");
+            if (condition.length() == 0 && param.get("updateAccountId") != null) {
+                condition.append(" update_account_id = #{updateAccountId} ");
+            } else if (condition.length() > 0 && param.get("updateAccountId") != null) {
+                condition.append(" and update_account_id = #{updateAccountId} ");
             }
             if (condition.length() == 0 && param.get("createTime") != null) {
                 condition.append(" create_time = #{createTime} ");
@@ -363,11 +317,6 @@ public interface CodeItemDao {
                 condition.append(" update_time = #{updateTime} ");
             } else if (condition.length() > 0 && param.get("updateTime") != null) {
                 condition.append(" and update_time = #{updateTime} ");
-            }
-            if (condition.length() == 0 && param.get("belong") != null) {
-                condition.append(" belong = #{belong} ");
-            } else if (condition.length() > 0 && param.get("belong") != null) {
-                condition.append(" and belong = #{belong} ");
             }
             sql.FROM(TABLE_NAME);
             if (condition.length() > 0) {
