@@ -109,6 +109,10 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -127,6 +131,7 @@
             <plugin>
                 <groupId>com.wind.codegen</groupId>
                 <artifactId>codegen</artifactId>
+                <version>${snapshot-version}</version>
                 <configuration>
                     <driverName>com.mysql.jdbc.Driver</driverName>
                     <url>jdbc:mysql://mysql:3306/wind_dict</url>

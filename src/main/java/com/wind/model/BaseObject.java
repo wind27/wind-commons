@@ -4,13 +4,15 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
+
 /**
  * BaseObject
  *
  * @author qianchun
  * @date 2019/7/29
  **/
-public class BaseObject {
+public class BaseObject implements Serializable{
     private static final long serialVersionUID = 2744190391613295958L;
 
     public BaseObject() {
